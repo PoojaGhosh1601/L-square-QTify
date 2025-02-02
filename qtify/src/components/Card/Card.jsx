@@ -1,32 +1,33 @@
 import React from "react";
-import "./Card.css";
+import styles from './Card.css';
+import Tooltip from "@mui/material/Tooltip";
+import Chip from "@mui/material/Chip";
 
-/**
- * Represents a card component.
- * Renders a card based on the provided data and type.
- * @param {Object} data - The data object containing information for the card.
- * @param {string} type - The type of the card.
- * @returns {JSX.Element|null} The rendered card component or null if the type is not recognized.
- */
-const Card = ({ data, type }) => {
-  switch (type) {
-    case "normal":
-      return (
-        <div className="Album_Cont" id={data.id}>
-          <div className="Album_card">
-            <div className="Album_card_image">
-              <img src={data.image} alt={data.title} />
+function Card({ data, type }) {
+  const { image, follows, title, songs } = data;
+
+  return (
+    <div className={styles.card}>
+      <div className={styles.cardImageWrapper}>
+        <img src={image} alt={title} className={styles.albumImage} />
+      </div>
+      <div className={styles.cardDetails}>
+        {type !== "Jaz" && (
+          <Tooltip title={`${songs.length} songs`} placement="top" arrow>
+            <div className={styles.banner}>
+              <Chip label={`${follows} follows`} size="small" className={styles.chip} />
             </div>
-            <div className="Album_card_text">
-              <h3>{data.follows} Follows</h3>
-            </div>
+          </Tooltip>
+        )}
+        {type === "Jaz" && (
+          <div className={styles.banner}>
+            <Chip label={`${follows} follows`} size="small" className={styles.chip} />
           </div>
-          <h3 className="Album_title">{data.title}</h3>
-        </div>
-      );
-    default:
-      return null;
-  }
-};
+        )}
+        <h3 className={styles.title}>{title}</h3>
+      </div>
+    </div>
+  );
+}
 
 export default Card;

@@ -1,15 +1,22 @@
 import React from "react";
-import Styles from "./HeroSection.module.css";
-import { ReactComponent as VibratingHeadphone } from "../../assets/vibratingHeadphone.svg";
+import "./HeroSection.css";
+import headphoneImage from "../../Assets/headphone.png";
 
+/**
+ * Represents the hero section of the application.
+ * Displays a left section with text and a right section with an image.
+ * @returns {JSX.Element} The rendered hero section component.
+ */
 const HeroSection = () => {
   return (
-    <div className={Styles.HeroContainer}>
-      <div className={Styles.HeroText}>
-        <div>100 Thousand Songs, ad-free</div>
-        <div>Over thousands podcast episodes</div>
+    <div className="hero">
+      <div className="hero_left">
+        <h3>100 Thousand Songs, ad-free</h3>
+        <h3>Over thousands podcast episodes</h3>
       </div>
-      <VibratingHeadphone />
+      <div className="hero_right">
+        <img src={headphoneImage} height="250px" width="250px" alt="headphoneImage" />
+      </div>
     </div>
   );
 };

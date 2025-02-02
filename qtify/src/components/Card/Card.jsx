@@ -1,40 +1,32 @@
 import React from "react";
-import Styles from "./Card.module.css";
-import { Chip, Tooltip } from "@mui/material";
+import "./Card.css";
 
+/**
+ * Represents a card component.
+ * Renders a card based on the provided data and type.
+ * @param {Object} data - The data object containing information for the card.
+ * @param {string} type - The type of the card.
+ * @returns {JSX.Element|null} The rendered card component or null if the type is not recognized.
+ */
 const Card = ({ data, type }) => {
-  const getCard = (type) => {
-    switch (type) {
-      case "album": {
-        const { image, follows, title, songs } = data;
-        console.log(songs,"songs")
-
-        return (
-          <Tooltip title={`${songs.length} songs`} placement="top" arrow >
-            <div className={Styles.wrapper}>
-              <div className={Styles.card}>
-                <img src={image} alt="album"/>
-                <div className={Styles.banner}>
-                  <Chip
-                    className={Styles.chip}
-                    label={`${follows} Follows`}
-                    Follows
-                    size="small"
-                  />
-                </div>
-              </div>
-              <div className={Styles.titleWrapper}>
-                <p>{title}</p>
-              </div>
+  switch (type) {
+    case "normal":
+      return (
+        <div className="Album_Cont" id={data.id}>
+          <div className="Album_card">
+            <div className="Album_card_image">
+              <img src={data.image} alt={data.title} />
             </div>
-          </Tooltip>
-        );
-      }
-      default:
-        return <></>;
-    }
-  };
-  return getCard(type);
+            <div className="Album_card_text">
+              <h3>{data.follows} Follows</h3>
+            </div>
+          </div>
+          <h3 className="Album_title">{data.title}</h3>
+        </div>
+      );
+    default:
+      return null;
+  }
 };
 
 export default Card;

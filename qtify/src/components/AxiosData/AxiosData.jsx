@@ -14,7 +14,7 @@ export const topAlbumData = async () => {
     try {
         let res = await axios.get(`${BackEndPoint}albums/top`);
         // console.log(res)
-        return res.data && Array.isArray(res.data) ? res.data : [];
+        return res.data;
     } catch (e) {
         console.log(`error from AxiosData Component ->`, e);
         return null;
@@ -28,7 +28,7 @@ export const topAlbumData = async () => {
 export const newAlbumData = async () => {
     try {
         let res = await axios.get(`${BackEndPoint}albums/new`);
-        return res.data && Array.isArray(res.data) ? res.data : [];
+        return res.data;
     } catch (e) {
         console.log(`error from AxiosData Component ->`, e);
         return null;
@@ -41,10 +41,10 @@ export const newAlbumData = async () => {
  */
 export const slugAlbumData = async () => {
     try {
-        let res = await axios.get(`${BackEndPoint}albums/${slug}`);
-        return res.data ? res.data : null;
+        let res = await axios.get(`${BackEndPoint}albums/:slug`);
+        return res.data;
     } catch (e) {
-        console.log(`error from AxiosData Component ${slug} ->`, e);
+        console.log(`error from AxiosData Component ->`, e);
         return null;
     }
 };
@@ -56,7 +56,7 @@ export const slugAlbumData = async () => {
 export const genresData = async () => {
     try {
         let res = await axios.get(`${BackEndPoint}genres`);
-        return res.data ? res.data : [];
+        return res.data;
     } catch (e) {
         console.log(`error from AxiosData Component ->`, e);
         return null;
@@ -70,7 +70,7 @@ export const genresData = async () => {
 export const songsData = async () => {
     try {
         let res = await axios.get(`${BackEndPoint}songs`);
-        return res.data ? res.data : [];
+        return res.data;
     } catch (e) {
         console.log(`error from AxiosData Component ->`, e);
         return null;
@@ -84,7 +84,7 @@ export const songsData = async () => {
 export const faqData = async () => {
     try {
         let res = await axios.get(`${BackEndPoint}faq`);
-        return res.data ? res.data : [];
+        return res.data;
     } catch (e) {
         console.log(`error from AxiosData Component ->`, e);
         return null;

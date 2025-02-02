@@ -1,0 +1,9 @@
+.logo {
+    /* Vertically center the logo */
+    display: block; /* Ensure image behaves like a block element */
+    margin-left: 20px; /* Add space to the left */
+    margin-top: auto;
+    margin-bottom: auto;
+    max-height: 50px; /* Adjust max-height if needed */
+    object-fit: contain; /* Ensures the logo image does not get stretched */
+  }

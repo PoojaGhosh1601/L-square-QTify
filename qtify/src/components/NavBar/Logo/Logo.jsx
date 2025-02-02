@@ -1,4 +1,6 @@
 import LogoImage from "../../../Assets/logo.png";
+import React from "react";
+import "../Logo/Logo.css"
 
 /**
  * Represents the logo component.
@@ -6,7 +8,7 @@ import LogoImage from "../../../Assets/logo.png";
  * @returns {JSX.Element} The rendered logo component.
  */
 const Logo = () => {
-  return <img src={LogoImage} alt="Logo" />;
+  return <img className="logo" src={LogoImage} alt="Logo" />;
 };
 
 export default Logo;
